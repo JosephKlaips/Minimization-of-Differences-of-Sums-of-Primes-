@@ -164,16 +164,19 @@ def counter(n):
     one = 0
     two = 0
     other = 0
+    primes = primeList(i)
     while i <= n:
-        if minSum(primeList(i)) == 0:
+        v = minSum(primes)
+        if v == 0:
             zero = zero + 1
-        elif minSum(primeList(i)) == 1:
+        elif v == 1:
             one = one + 1
-        elif minSum(primeList(i)) == 2:
+        elif v == 2:
             two = two + 1
         else:
             other = other + 1
         i = i + 1
+        primes.append(prime(i))
     return f"Zeroes: {zero}\nOnes: {one}\nTwos: {two}\nOther: {other}"
 
 #Returns the sum of the first n primes. This is the (capital) sigma function.
@@ -189,7 +192,7 @@ def sigma(n):
 
 while True:
     n = int(input("Number of primes: "))
-    #print(primeList(n))
+    print(primeList(n))
     print("Pn =",minSum(primeList(n)))
     #print(actualSum(primeList(n)))
     #print("Average of terms(Pn): m = ",averageSum(adjustedSum(primeList(n))))
@@ -201,7 +204,7 @@ while True:
     #print(counter(n))
     #print("∑(n) = ",sigma(n))
     
-
+    '''
     #plotting the points S
     X = []
     Y = []
@@ -228,6 +231,6 @@ while True:
     #function to show the plot
     plt.grid()
     plt.show()    
-    
+    '''
     
     
